@@ -1,3 +1,8 @@
+# Changelog for Hide Skins 16.12.2022
+
+1.0.0.2
+- Made a version that doesn't require FK Mods.
+
 # Changelog for Hide Skins 9.12.2022
 
 1.0.0.1

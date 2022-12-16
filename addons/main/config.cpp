@@ -13,9 +13,7 @@ class CfgPatches {
             "hlcweapons_SAW",
             "hlcweapons_SCAR",
             "hlcweapons_XM8",
-            "rhsusf_main_loadorder",
-            "fk_fix_niarms",
-            "fk_fix_rhs"
+            "rhsusf_main_loadorder"
         };
         author = "johnb43";
         authors[] = {"johnb43"};
