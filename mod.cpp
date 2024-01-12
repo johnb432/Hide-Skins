@@ -10,6 +10,6 @@ tooltip = "Hide Skins";
 tooltipOwned = "Hide Skins";
 action = "https://github.com/johnb432/Hide-Skins";
 actionName = "Github";
-overview = "A mod that replaces some special models with regular variants of that model.";
+overview = "A mod that replaces some special models with regular variants of that model. Made by johnb43.";
 hidePicture = 0;
 hideName = 0;
