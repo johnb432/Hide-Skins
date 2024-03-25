@@ -7,5 +7,6 @@ This mod replaces several special models with regular models:
 * NIArms: Remington ACR-E Cliffhanger
 * NIArms: RRA LAR-15 AMR
 * NIArms: XM8 Fish & Custom
+* NIArms: Pride rails
 
 This mod is client side.

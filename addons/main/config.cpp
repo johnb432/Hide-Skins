@@ -9,14 +9,32 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
+            #if __has_include("\hlc_core\config.bin")
+                "hlcweapons_core",
+            #endif
             #if __has_include("\hlc_wp_ACR\config.bin")
                 "hlcweapons_acr",
+            #endif
+            #if __has_include("\hlc_wp_ak\config.bin")
+                "hlcweapons_AKs",
             #endif
             #if __has_include("\hlc_wp_ar15\config.bin")
                 "hlcweapons_AR15",
             #endif
+            #if __has_include("\hlc_wp_aug\config.bin")
+                "hlcweapons_AUG",
+            #endif
+            #if __has_include("\hlc_wp_fal\config.bin")
+                "hlcweapons_falpocalypse",
+            #endif
+            #if __has_include("\hlc_wp_g3\config.bin")
+                "hlcweapons_g3",
+            #endif
             #if __has_include("\hlc_wp_g36\config.bin")
                 "hlcweapons_G36",
+            #endif
+            #if __has_include("\hlc_wp_mp5\config.bin")
+                "hlcweapons_MP5",
             #endif
             #if __has_include("\hlc_wp_saw\config.bin")
                 "hlcweapons_SAW",
@@ -33,18 +51,6 @@ class CfgPatches {
             #if __has_include("\rhsusf\addons\rhsusf_main\loadorder\config.bin")
                 "rhsusf_main_loadorder",
             #endif
-            #if __has_include("\f\fkm\addons\fix_niarms\script_component.hpp")
-                "fkm_fix_niarms",
-            #endif
-            #if __has_include("\f\fkm\addons\fix_rhs\script_component.hpp")
-                "fkm_fix_rhs",
-            #endif
-            #if __has_include("\z\wb_niarms\addons\main\script_component.hpp")
-                "wb_niarms_main",
-            #endif
-            #if __has_include("\z\wb_rhs\addons\main\script_component.hpp")
-                "wb_rhs_main",
-            #endif
             "A3_Data_F_AoW_Loadorder"
         };
         author = "johnb43";
@@ -56,21 +62,11 @@ class CfgPatches {
     };
 };
 
-#if __has_include("\f\fkm\addons\fix_niarms\script_component.hpp")
-    #define WB_NIARMS 1
-#endif
-#if __has_include("\z\wb_niarms\addons\main\script_component.hpp")
-    #define WB_NIARMS 1
-#endif
-
-#if __has_include("\f\fkm\addons\fix_rhs\script_component.hpp")
-    #define WB_RHS 1
-#endif
-#if __has_include("\z\wb_rhs\addons\main\script_component.hpp")
-    #define WB_RHS 1
-#endif
-
 class CfgWeapons {
+    #if __has_include("\hlc_core\config.bin")
+        #include "CfgSidePanels.hpp"
+    #endif
+
     // NIArms
     #if __has_include("\hlc_wp_ACR\config.bin")
         class hlc_rifle_ACR_SBR_tan;
@@ -82,12 +78,7 @@ class CfgWeapons {
 
         class hlc_rifle_ACR_GL_SBR_black;
         class hlc_rifle_ACR_GL_SBR_cliffhanger: hlc_rifle_ACR_GL_SBR_black {
-            #ifdef WB_NIARMS
-                displayName = "Remington ACR-E (Compact/GL/Black/Worn)";
-            #else
-                displayName = "Remington ACR-E (GL/Compact/Black/Worn)";
-            #endif
-
+            displayName = "Remington ACR-E (GL/Compact/Black/Worn)";
             hiddenSelectionsTextures[] = {"hlc_wp_ACR\tex\map1-black_co.paa","hlc_wp_ACR\tex\map2-556black_co.paa","hlc_wp_ACR\tex\map3-black_co.paa","hlc_wp_ACR\tex\mapyesblack_co.paa","hlc_wp_ACR\tex\pmag_co.paa","hlc_wp_ACR\tex\afg2_co.paa"};
             picture = "\hlc_wp_acr\tex\ui\gear_sbr-black_ca";
         };
@@ -104,12 +95,7 @@ class CfgWeapons {
     #if __has_include("\hlc_wp_g36\config.bin")
         class hlc_rifle_G36E1AG36;
         class hlc_rifle_G36E1AG36_Romi: hlc_rifle_G36E1AG36 {
-            #ifdef WB_NIARMS
-                displayName = "HK G36E (GL)";
-            #else
-                displayName = "H&K HK G36E (GL)";
-            #endif
-
+            displayName = "H&K HK G36E (GL)";
             hiddenSelectionsTextures[] = {"hlc_wp_g36\tex\commonmaps\g36_commonmap_e1_co.paa","hlc_wp_g36\tex\placeholder\g36_dualoptics_export_co.paa","hlc_wp_g36\tex\placeholder\g36_magwell_co.paa","hlc_wp_g36\tex\placeholder\g36_stockfurniture_co.paa","hlc_wp_g36\tex\placeholder\g36_ag36_co.paa"};
             picture = "\hlc_wp_g36\tex\ui\gear_AG36E_ca.paa";
         };
@@ -143,12 +129,7 @@ class CfgWeapons {
     #if __has_include("\nia_wp_XM8\config.bin")
         class HLC_rifle_XM8_Carbine;
         class HLC_rifle_XM8_Carbine_Fish: HLC_rifle_XM8_Carbine {
-            #ifdef WB_NIARMS
-                displayName = "XM8 (Carbine)";
-            #else
-                displayName = "XM8 Carbine";
-            #endif
-
+            displayName = "XM8 Carbine";
             delete HiddenSelectionsMaterials;
             hiddenSelectionsTextures[] = {"nia_wp_XM8\tex\toadie_XM8\XM8_Common_co.paa","nia_wp_XM8\tex\toadie_XM8\XM8_reciever_co.paa","nia_wp_XM8\tex\toadie_XM8\xm8_stocks_co.paa","nia_wp_XM8\tex\toadie_XM8\XM8_Foregrip_STD_co.paa","nia_wp_XM8\tex\toadie_XM8\xm8_xm320_co.paa"};
             picture = "\nia_wp_xm8\tex\ui\XM8_Carbine_ca.paa";
@@ -156,12 +137,7 @@ class CfgWeapons {
 
         class hlc_rifle_XM8_DMAR;
         class HLC_rifle_XM8_DMAR_Custom: hlc_rifle_XM8_DMAR {
-            #ifdef WB_NIARMS
-                displayName = "XM8 (DMAR/Green)";
-            #else
-                displayName = "XM8 DMAR(Green)";
-            #endif
-
+            displayName = "XM8 DMAR(Green)";
             delete HiddenSelectionsMaterials;
             hiddenSelectionsTextures[] = {"nia_wp_XM8\tex\toadie_XM8\XM8_Common_Green_co.paa","nia_wp_XM8\tex\toadie_XM8\XM8_reciever_Green_co.paa","nia_wp_XM8\tex\toadie_XM8\xm8_stocks_Green_co.paa","nia_wp_XM8\tex\toadie_XM8\XM8_Foregrip_DMAR_Green_co.paa",""};
             picture = "\nia_wp_xm8\tex\ui\XM8_DMAR_Green_ca.paa";
@@ -171,81 +147,86 @@ class CfgWeapons {
     #if __has_include("\nia_wp_HK416\config.bin")
         class hlc_rifle_416C;
         class hlc_rifle_bab: hlc_rifle_416C {
-            #ifdef WB_NIARMS
-                displayName = "HK416C";
-            #else
-                displayName = "H&K HK416C";
-            #endif
-
+            displayName = "H&K HK416C";
             hiddenSelectionsMaterials[] = {"nia_wp_hk416\mat\416c_upper.rvmat","nia_wp_hk416\mat\416C_lower.rvmat","nia_wp_hk416\mat\416C_Stock.rvmat","nia_wp_hk416\mat\416_common.rvmat","nia_wp_hk416\mat\416c_foreend.rvmat"};
             hiddenSelectionsTextures[] = {"nia_wp_hk416\tex\toadie_416\416c_upper_co.paa","nia_wp_hk416\tex\toadie_416\416c_lower_co.paa","nia_wp_hk416\tex\toadie_416\416c_stock_co.paa","nia_wp_hk416\tex\toadie_416\416_common_co.paa","nia_wp_hk416\tex\toadie_416\416c_foreend_co.paa"};
             picture = "\nia_WP_HK416\tex\ui\gear_416c_ca";
         };
     #endif
 
+    #if __has_include("\rhssaf\addons\rhssaf_main\loadorder\config.bin")
+        #define RHSSAF 1
+    #endif
+
     // RHS
     #if __has_include("\rhsusf\addons\rhsusf_main\loadorder\config.bin")
         class rhs_weap_mk17_CQC;
         class rhs_weap_SCARH_USA_CQC: rhs_weap_mk17_CQC {
-            #ifdef WB_RHS
-                displayName = "SCAR-H CQC (Black)";
-            #else
-                displayName = "SCAR-H (CQC)";
-            #endif
+            displayName = "SCAR-H (CQC)";
 
-            hiddenSelectionsTextures[] = {"rhssaf\addons\rhssaf_t_weapon_scar\data\scarh_blk_co.paa"};
-            picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_CQC_ca.paa";
+            #ifdef RHSSAF
+                hiddenSelectionsTextures[] = {"rhssaf\addons\rhssaf_t_weapon_scar\data\scarh_blk_co.paa"};
+                picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_CQC_ca.paa";
+            #else
+                hiddenSelectionsTextures[] = {"rhsusf\addons\rhsusf_weapons3\mk17\data\mk17_co.paa"};
+                picture = "\rhsusf\addons\rhsusf_inventoryicons\data\weapons\rhs_weap_mk17_CQC_ca.paa";
+            #endif
         };
         class rhs_weap_SCARH_USA_CQC_Folded: rhs_weap_SCARH_USA_CQC {
-            #ifdef WB_RHS
-                displayName = "SCAR-H CQC (Black/Folded)";
-            #else
-                displayName = "SCAR-H (CQC) Folded";
-            #endif
+            displayName = "SCAR-H (CQC) Folded";
 
-            picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_CQC_folded_ca.paa";
+            #ifdef RHSSAF
+                picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_CQC_folded_ca.paa";
+            #else
+                picture = "\rhsusf\addons\rhsusf_inventoryicons\data\weapons\rhs_weap_mk17_CQC_folded_ca.paa";
+                model = "\rhsusf\addons\rhsusf_weapons3\MK17\Mk17_CQC_folded";
+            #endif
         };
 
         class rhs_weap_mk17_LB;
         class rhs_weap_SCARH_USA_LB: rhs_weap_mk17_LB {
-            #ifdef WB_RHS
-                displayName = "SCAR-H LB (Black)";
-            #else
-                displayName = "SCAR-H (LB)";
-            #endif
+            displayName = "SCAR-H (LB)";
 
-            hiddenSelectionsTextures[] = {"rhssaf\addons\rhssaf_t_weapon_scar\data\scarh_blk_co.paa"};
-            picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_LB_ca.paa";
+            #ifdef RHSSAF
+                hiddenSelectionsTextures[] = {"rhssaf\addons\rhssaf_t_weapon_scar\data\scarh_blk_co.paa"};
+                picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_LB_ca.paa";
+            #else
+                hiddenSelectionsTextures[] = {"rhsusf\addons\rhsusf_weapons3\mk17\data\mk17_co.paa"};
+                picture = "\rhsusf\addons\rhsusf_inventoryicons\data\weapons\rhs_weap_mk17_LB_ca.paa";
+            #endif
         };
         class rhs_weap_SCARH_USA_LB_Folded: rhs_weap_SCARH_USA_LB {
-            #ifdef WB_RHS
-                displayName = "SCAR-H LB (Black/Folded)";
-            #else
-                displayName = "SCAR-H (LB) Folded";
-            #endif
+            displayName = "SCAR-H (LB) Folded";
 
-            picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_LB_folded_ca.paa";
+            #ifdef RHSSAF
+                picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_LB_folded_ca.paa";
+            #else
+                picture = "\rhsusf\addons\rhsusf_inventoryicons\data\weapons\rhs_weap_mk17_LB_folded_ca.paa";
+                model = "\rhsusf\addons\rhsusf_weapons3\MK17\Mk17_LB_folded";
+            #endif
         };
 
         class rhs_weap_mk17_STD;
         class rhs_weap_SCARH_USA_STD: rhs_weap_mk17_STD {
-            #ifdef WB_RHS
-                displayName = "SCAR-H STD (Black)";
-            #else
-                displayName = "SCAR-H (STD)";
-            #endif
+            displayName = "SCAR-H (STD)";
 
-            hiddenSelectionsTextures[] = {"rhssaf\addons\rhssaf_t_weapon_scar\data\scarh_blk_co.paa"};
-            picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_STD_ca.paa";
+            #ifdef RHSSAF
+                hiddenSelectionsTextures[] = {"rhssaf\addons\rhssaf_t_weapon_scar\data\scarh_blk_co.paa"};
+                picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_STD_ca.paa";
+            #else
+                hiddenSelectionsTextures[] = {"rhsusf\addons\rhsusf_weapons3\mk17\data\mk17_co.paa"};
+                picture = "\rhsusf\addons\rhsusf_inventoryicons\data\weapons\rhs_weap_mk17_STD_ca.paa";
+            #endif
         };
         class rhs_weap_SCARH_USA_STD_Folded: rhs_weap_SCARH_USA_STD {
-            #ifdef WB_RHS
-                displayName = "SCAR-H STD (Black/Folded)";
-            #else
-                displayName = "SCAR-H (STD) Folded";
-            #endif
+            displayName = "SCAR-H (STD) Folded";
 
-            picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_STD_folded_ca.paa";
+            #ifdef RHSSAF
+                picture = "\rhssaf\addons\rhssaf_inventoryicons\data\weapons\rhs_weap_SCARH_STD_folded_ca.paa";
+            #else
+                picture = "\rhsusf\addons\rhsusf_inventoryicons\data\weapons\rhs_weap_mk17_STD_folded_ca.paa";
+                model = "\rhsusf\addons\rhsusf_weapons3\MK17\Mk17_folded";
+            #endif
         };
     #endif
 };

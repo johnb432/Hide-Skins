@@ -1,3 +1,9 @@
+# Changelog for Hide Skins 25.3.2024
+
+1.0.2.0
+- Fixed dependency issues.
+- Replaced NIArms Pride rails.
+
 # Changelog for Hide Skins 12.1.2024
 
 1.0.1.0
