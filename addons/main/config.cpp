@@ -15,26 +15,11 @@ class CfgPatches {
             #if __has_include("\hlc_wp_ACR\config.bin")
                 "hlcweapons_acr",
             #endif
-            #if __has_include("\hlc_wp_ak\config.bin")
-                "hlcweapons_AKs",
-            #endif
             #if __has_include("\hlc_wp_ar15\config.bin")
-                "hlcweapons_AR15",
-            #endif
-            #if __has_include("\hlc_wp_aug\config.bin")
-                "hlcweapons_AUG",
-            #endif
-            #if __has_include("\hlc_wp_fal\config.bin")
-                "hlcweapons_falpocalypse",
-            #endif
-            #if __has_include("\hlc_wp_g3\config.bin")
-                "hlcweapons_g3",
+                "hlcweapons_ar15",
             #endif
             #if __has_include("\hlc_wp_g36\config.bin")
                 "hlcweapons_G36",
-            #endif
-            #if __has_include("\hlc_wp_mp5\config.bin")
-                "hlcweapons_MP5",
             #endif
             #if __has_include("\hlc_wp_saw\config.bin")
                 "hlcweapons_SAW",

@@ -1,3 +1,8 @@
+# Changelog for Hide Skins 20.6.2024
+
+1.0.3.0
+- Fixed hide skins not working with Weapons Balance.
+
 # Changelog for Hide Skins 25.3.2024
 
 1.0.2.0
