@@ -23,8 +23,8 @@ All good? Then proceed and fill out the items below.
 **Mods (complete and add to the following information):**
 - **Arma 3:** `2.xx` [e.g. 2.00 stable, rc, dev, profiling]
 - **Hide Skins:** `1.x.x` [e.g. 1.0.0 stable, commit hash]
-- **(Optional) NIArms** (remove line if not loaded)
-- **(Optional) RHS:** `0.x.x` [e.g. 0.4.1 stable, commit hash] (remove line if not loaded)
+- **(Optional) NIArms: ** `v14` [e.g. v14, dev] (remove line if not loaded)
+- **(Optional) RHS:** `0.x.x` [e.g. 0.4.1 stable, dev] (remove line if not loaded)
 <!-- Make sure to reproduce the issue on a newly created mission! -->
 
 **Description:**
